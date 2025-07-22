@@ -1,0 +1,17 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "..\\..\\..\\Desktop\\ManagementService\\ManagementService.csproj",
+        "Action": "Start",
+        "DebugTarget": "http"
+      },
+      {
+        "Path": "MessageDistributor\\MessageDistributor.csproj",
+        "Action": "Start",
+        "DebugTarget": "MessageDistributor"
+      }
+    ]
+  }
+]
