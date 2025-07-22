@@ -37,7 +37,7 @@ string[] senders = new[]
     "ClientB"
 };
 
-Console.WriteLine(" MessageDistributor   Strat...");
+Console.WriteLine(" MessageDistributor   Strat..");
 
 // 🔁 بررسی سلامت سیستم هر 30 ثانیه
 _ = Task.Run(async () =>
