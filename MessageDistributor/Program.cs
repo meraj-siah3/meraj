@@ -19,7 +19,7 @@ string[] messages = new[]
     "urgent: action required",
     "this is a test message",
     "error occurred during process",
-    "سلام، این یک پیام تستی است",
+    " hi this is a test",
     "please confirm your identity",
     "regex matching is powerful",
     "custom engine processing now",
@@ -39,7 +39,7 @@ string[] senders = new[]
 
 Console.WriteLine(" MessageDistributor   Strat.....");
 
-// 🔁 بررسی سلامت سیستم هر 30 ثانیه
+//  بررسی سلامت سیستم هر 30 ثانیه
 _ = Task.Run(async () =>
 {
     while (true)
@@ -47,7 +47,7 @@ _ = Task.Run(async () =>
         var result = await healthCheckService.CheckHealthAsync(engineId, 5);
         isEnabled = result?.IsEnabled ?? false;
 
-        Console.WriteLine($"[HealthCheck] وضعیت: IsEnabled = {isEnabled}");
+        Console.WriteLine($" HealthCheck  Status: IsEnabled = {isEnabled}");
 
         // معرفی اولیه موتور اگر فعال بود
         if (isEnabled && !isRegistered)
@@ -59,7 +59,7 @@ _ = Task.Run(async () =>
     }
 });
 
-// 🔁 ارسال پیام‌های تصادفی هر 2 ثانیه
+//  ارسال پیام‌های تصادفی هر 2 ثانیه
 _ = Task.Run(async () =>
 {
     var rnd = new Random();
@@ -78,7 +78,7 @@ _ = Task.Run(async () =>
             var response = await grpcClient.ProcessMessageAsync(message);
             if (response != null)
             {
-                Console.WriteLine($"📨 پیام پردازش شد: {JsonSerializer.Serialize(response)}");
+                Console.WriteLine($"The message is processed : {JsonSerializer.Serialize(response)}");
             }
         }
 
@@ -86,5 +86,5 @@ _ = Task.Run(async () =>
     }
 });
 
-Console.WriteLine("✅ سیستم فعال است. برای خروج Enter بزنید.");
+Console.WriteLine(" Click button to exit ");
 Console.ReadLine();

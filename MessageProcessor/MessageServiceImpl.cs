@@ -16,7 +16,7 @@ public class MessageServiceImpl : MessageService.MessageServiceBase
     // متد ثبت موتور
     public override Task<MessageResponse> RegisterEngine(EngineInfo request, ServerCallContext context)
     {
-        Console.WriteLine($"✅ Engine ثبت شد → ID: {request.Id}, Type: {request.Type}");
+        Console.WriteLine($" Engine  registered ID: {request.Id}, Type: {request.Type}");
 
         return Task.FromResult(new MessageResponse
         {
@@ -34,16 +34,16 @@ public class MessageServiceImpl : MessageService.MessageServiceBase
         int length = msg.Length;
         bool isValid = true;
 
-        Console.WriteLine($"\n📥 پیام جدید دریافت شد:");
-        Console.WriteLine($"🆔 ID: {request.Id}");
-        Console.WriteLine($"👤 Sender: {request.Sender}");
-        Console.WriteLine($"✉️ Message: \"{msg}\"");
+        Console.WriteLine($"\n New message received:");
+        Console.WriteLine($" ID: {request.Id}");
+        Console.WriteLine($" Sender: {request.Sender}");
+        Console.WriteLine($" Message: \"{msg}\"");
 
         // اجرای regexها
         foreach (var pattern in _regexPatterns)
         {
             bool matched = Regex.IsMatch(msg, pattern.Value, RegexOptions.IgnoreCase);
-            Console.WriteLine($"🔎 {pattern.Key}: {matched}");
+            Console.WriteLine($" {pattern.Key}: {matched}");
 
             if (!matched)
                 isValid = false;
@@ -58,7 +58,7 @@ public class MessageServiceImpl : MessageService.MessageServiceBase
             IsValid = isValid
         };
 
-        Console.WriteLine($"📤 پاسخ → Length: {length}, IsValid: {isValid}");
+        Console.WriteLine($"  Length: {length}, IsValid: {isValid}");
 
         return Task.FromResult(response);
     }

@@ -11,7 +11,7 @@ var server = new Server
 };
 
 server.Start();
-Console.WriteLine($"🚀 MessageProcessor gRPC Server اجرا شد روی پورت {Port}");
-Console.WriteLine("برای توقف کلید بزنید...");
+Console.WriteLine($" MessageProcessor gRPC Server Executed on the port {Port}");
+Console.WriteLine("Press the button to stop...");
 Console.ReadKey();
 await server.ShutdownAsync();

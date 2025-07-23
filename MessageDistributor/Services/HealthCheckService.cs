@@ -29,13 +29,13 @@ public class HealthCheckService
             } 
             else
             {
-                Console.WriteLine($" خطا در HealthCheck: StatusCode = {response.StatusCode}");
+                Console.WriteLine($" error in  HealthCheck: StatusCode = {response.StatusCode}");
                 return null;
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"استثنا در HealthCheck: {ex.Message}");
+            Console.WriteLine($"Exception  in  HealthCheck: {ex.Message}");
             return null;
         }
     }
