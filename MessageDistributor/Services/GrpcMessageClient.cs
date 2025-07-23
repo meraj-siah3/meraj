@@ -10,6 +10,7 @@ public class GrpcMessageClient
 
     public GrpcMessageClient(string grpcAddress)
     {
+        
         var channel = GrpcChannel.ForAddress(grpcAddress);
         _client = new MessageService.MessageServiceClient(channel);
     }
@@ -22,7 +23,7 @@ public class GrpcMessageClient
             Type = type
         });
 
-        Console.WriteLine($" RegisterEngine → Engine: {response.Engine}, Valid: {response.IsValid}");
+        Console.WriteLine($" RegisterEngine  Engine: {response.Engine}, Valid: {response.IsValid}");
         return response.IsValid;
     }
 
@@ -30,12 +31,13 @@ public class GrpcMessageClient
     {
         try
         {
+            
             var response = await _client.ProcessMessageAsync(request);
             return response;
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"❌ خطا در ProcessMessage: {ex.Message}");
+            Console.WriteLine($" Error in ProcessMessage: {ex.Message}");
             return null;
         }
     }

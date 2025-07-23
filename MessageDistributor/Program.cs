@@ -16,7 +16,7 @@ string[] messages = new[]
 {
     "lorem ipsum dolor sit amet",
     "hello world from gRPC client",
-    "urgent: action required",
+    "urgent action required",
     "this is a test message",
     "error occurred during process",
     " hi this is a test",
@@ -49,7 +49,7 @@ _ = Task.Run(async () =>
 
         Console.WriteLine($" HealthCheck  Status: IsEnabled = {isEnabled}");
 
-        // معرفی اولیه موتور اگر فعال بود
+        // معرفی اولیه اگر فعال بود
         if (isEnabled && !isRegistered)
         {
             isRegistered = await grpcClient.RegisterEngineAsync(engineId, engineType);
@@ -68,13 +68,14 @@ _ = Task.Run(async () =>
     {
         if (isEnabled && isRegistered)
         {
+        //    اینجا پیام ساخته میشه و در خط بعد پیام ارسال میشه
             var message = new MessageRequest
             {
                 Id = rnd.Next(1000, 9999),
                 Sender = senders[rnd.Next(senders.Length)],
                 Message = messages[rnd.Next(messages.Length)]
             };
-
+            //اینجا می‌ره به کلاس GrpcMessageClient و متد ProcessMessageAsync رو صدا می‌زنه
             var response = await grpcClient.ProcessMessageAsync(message);
             if (response != null)
             {
