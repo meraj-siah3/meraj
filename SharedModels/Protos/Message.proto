@@ -24,4 +24,6 @@ message MessageResponse {
 service MessageService {
   rpc RegisterEngine (EngineInfo) returns (MessageResponse);
   rpc ProcessMessage (MessageRequest) returns (MessageResponse);
+  rpc StreamMessages (stream MessageRequest) returns (stream MessageResponse);
+
 }

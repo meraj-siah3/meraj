@@ -15,3 +15,4 @@ Console.WriteLine($" MessageProcessor gRPC Server Executed on the port {Port}");
 Console.WriteLine("Press the button to stop...");
 Console.ReadKey();
 await server.ShutdownAsync();
+    
