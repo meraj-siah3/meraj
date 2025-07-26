@@ -23,7 +23,7 @@
   </ItemGroup>
 
 	<ItemGroup>
-		<Protobuf Include="..\SharedModels\Protos\message.proto" GrpcServices="Server" />
+		<Protobuf Include="..\SharedModels\Protos\message.proto" GrpcServices="Client" />
 	</ItemGroup>
 
 </Project>

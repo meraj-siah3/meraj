@@ -1,29 +1,20 @@
 ﻿syntax = "proto3";
-option csharp_namespace = "GrpcContracts";
+option csharp_namespace = "MessageProtocol";
 
-package message;
-
-message EngineInfo {
-  string id = 1;
-  string type = 2;
+service MessageService {
+  rpc Communicate(stream MessageRequest) returns (stream MessageResponse);
 }
 
 message MessageRequest {
-  int32 id = 1;
-  string sender = 2;
-  string message = 3;
+  string id = 1;
+  string type = 2;     // فقط در پیام معرفی پر میشه
+  string sender = 3;   // فقط در پیام رندوم پر میشه
+  string message = 4;
 }
 
 message MessageResponse {
-  int32 id = 1;
+  string id = 1;
   string engine = 2;
   int32 messageLength = 3;
   bool isValid = 4;
-}
-
-service MessageService {
-  rpc RegisterEngine (EngineInfo) returns (MessageResponse);
-  rpc ProcessMessage (MessageRequest) returns (MessageResponse);
-  rpc StreamMessages (stream MessageRequest) returns (stream MessageResponse);
-
 }

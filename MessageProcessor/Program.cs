@@ -1,5 +1,5 @@
 ﻿using Grpc.Core;
-using GrpcContracts;
+using MessageProtocol;
 using Microsoft.AspNetCore.Hosting.Server;
 
 const int Port = 5002;
